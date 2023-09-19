@@ -1,18 +1,11 @@
-class Model {
-    private static Model instance = null;
+package calculator.model;
 
+public class Model {
     private String infixExpression;
     private double rpnResult;
     private RPN rpn = new RPN();
 
-    private Model() {}
-
-    public static Model instantiate() {
-        if (instance == null) {
-            instance = new Model();
-        }
-        return instance;
-    }
+    public Model() {}
 
     public String getInfixExpression() {
         return this.infixExpression;

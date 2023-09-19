@@ -1,3 +1,5 @@
+package calculator.model;
+
 class RPN {
     private double result;
     
