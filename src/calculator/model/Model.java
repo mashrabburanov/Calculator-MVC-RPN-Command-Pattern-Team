@@ -2,6 +2,9 @@ package calculator.model;
 
 import calculator.viewer.Viewer;
 
+/**
+ * Синглтон модели, содержит также ссылку на вьювер
+ */
 public class Model {
     private static Model INSTANCE = null;
 
