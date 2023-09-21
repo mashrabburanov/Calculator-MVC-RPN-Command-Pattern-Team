@@ -133,9 +133,9 @@ public class Viewer {
         textField = new TextField("0");
         grid = initializeButtonsGrid();
         Insets offsets = new Insets(OFFSET_TOP,
-                             OFFSET_RIGHT,
-                             OFFSET_BOTTOM,
-                             OFFSET_LEFT);
+                                    OFFSET_RIGHT,
+                                    OFFSET_BOTTOM,
+                                    OFFSET_LEFT);
 
         textField.setEditable(false);
         root.setAlignment(Pos.CENTER);
@@ -152,9 +152,9 @@ public class Viewer {
         createButtons();
         addButtonsToGrid(grid);
         Insets offsets = new Insets(OFFSET_TOP,
-                                   OFFSET_RIGHT,
-                                   OFFSET_BOTTOM,
-                                   OFFSET_LEFT);
+                                    OFFSET_RIGHT,
+                                    OFFSET_BOTTOM,
+                                    OFFSET_LEFT);
 
         grid.setAlignment(Pos.CENTER);
         grid.setPadding(offsets);
