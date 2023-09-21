@@ -20,13 +20,6 @@ public class Viewer {
     private final double OFFSET_BOTTOM = 5;
     private final double OFFSET_LEFT = 10;
     private final double GRID_GAP = 5;
-    
-    // public static enum Buttons {
-    //     ONE("1"),
-    //     TWO("2"),
-    //     THREE("3"),
-    //     FOUR("4"),
-    // }
 
     private VBox        root;
     private GridPane    grid;
@@ -50,8 +43,8 @@ public class Viewer {
     private Button      buttonStar;
     private Button      buttonSlash;
     private Button      buttonEqual;
-    private Button      buttonLeftBracket;
-    private Button      buttonRightBracket;
+    private Button      buttonOpeningBracket;
+    private Button      buttonClosingBracket;
     private Button      buttonModulo;
     private Button      buttonPercent;
     private Button      buttonPowerOfTwo;
@@ -72,13 +65,67 @@ public class Viewer {
         return root;
     }
 
-    // public Button getButton(String buttonLabel) {
-    //     switch buttonLabel {
-    //     case :
-    //         return 
-    //         breack;
-    //     }
-    // }
+    public Button getButton(Buttons button) {
+        switch (button) {
+        case ZERO:
+            return buttonNum0;
+        case ONE:
+            return buttonNum1;
+        case TWO:
+            return buttonNum2;
+        case THREE:
+            return buttonNum3;
+        case FOUR:
+            return buttonNum4;
+        case FIVE:
+            return buttonNum5;
+        case SIX:
+            return buttonNum6;
+        case SEVEN:
+            return buttonNum7;
+        case EIGHT:
+            return buttonNum8;
+        case NINE:
+            return buttonNum9;
+        case DOT:
+            return buttonDot;
+        case CLEAR_ALL:
+            return buttonClearAll;
+        case CLEAR_ENTRY:
+            return buttonClearEntry;
+        case PLUS:
+            return buttonPlus;
+        case MINUS:
+            return buttonMinus;
+        case STAR:
+            return buttonStar;
+        case SLASH:
+            return buttonSlash;
+        case EQUAL:
+            return buttonEqual;
+        case OPENING_BRACKET:
+            return buttonOpeningBracket;
+        case CLOSING_BRACKET:
+            return buttonClosingBracket;
+        case MODULO:
+            return buttonModulo;
+        case PERCENT:
+            return buttonPercent;
+        case POWER_OF_TWO:
+            return buttonPowerOfTwo;
+        default:
+            System.out.println("Log: error: No such button");
+            return null;
+        }
+    }
+
+    public TextField getTextField() {
+        return textField;
+    }
+
+    public Label getLabel() {
+        return label;
+    }
 
     private Pane initializeRootPane() {
         VBox root = new VBox();        
@@ -118,34 +165,35 @@ public class Viewer {
     }
 
     private void createButtons() {
-        double equalButtonHeight;
+        double equalButtonHeight = (BUTTON_DEFAULT_HEIGHT * 3) 
+                                   + (GRID_GAP * 3) 
+                                   + 20;
 
-        buttonNum0 = createButton("0");
-        buttonNum1 = createButton("1");
-        buttonNum2 = createButton("2");
-        buttonNum3 = createButton("3");
-        buttonNum4 = createButton("4");
-        buttonNum5 = createButton("5");
-        buttonNum6 = createButton("6");
-        buttonNum7 = createButton("7");
-        buttonNum8 = createButton("8");
-        buttonNum9 = createButton("9");
-        buttonDot = createButton(".");
-        buttonClearAll = createButton("CA");
-        buttonClearEntry = createButton("CE");
-        buttonPlus = createButton("+");
-        buttonMinus = createButton("-");
-        buttonStar = createButton("*");
-        buttonSlash = createButton("/");
-        buttonLeftBracket = createButton("(");
-        buttonRightBracket = createButton(")");
-        buttonModulo = createButton("mod");
-        buttonPercent = createButton("%");
-        buttonPowerOfTwo = createButton("^2");
-
-        equalButtonHeight = (BUTTON_DEFAULT_HEIGHT * 3) + (GRID_GAP * 3) + 20;
-
-        buttonEqual = createButton("=", BUTTON_DEFAULT_WIDTH, equalButtonHeight);
+        buttonNum0 = createButton(Buttons.ZERO.getLabel());
+        buttonNum1 = createButton(Buttons.ONE.getLabel());
+        buttonNum2 = createButton(Buttons.TWO.getLabel());
+        buttonNum3 = createButton(Buttons.THREE.getLabel());
+        buttonNum4 = createButton(Buttons.FOUR.getLabel());
+        buttonNum5 = createButton(Buttons.FIVE.getLabel());
+        buttonNum6 = createButton(Buttons.SIX.getLabel());
+        buttonNum7 = createButton(Buttons.SEVEN.getLabel());
+        buttonNum8 = createButton(Buttons.EIGHT.getLabel());
+        buttonNum9 = createButton(Buttons.NINE.getLabel());
+        buttonDot = createButton(Buttons.DOT.getLabel());
+        buttonClearAll = createButton(Buttons.CLEAR_ALL.getLabel());
+        buttonClearEntry = createButton(Buttons.CLEAR_ENTRY.getLabel());
+        buttonPlus = createButton(Buttons.PLUS.getLabel());
+        buttonMinus = createButton(Buttons.MINUS.getLabel());
+        buttonStar = createButton(Buttons.STAR.getLabel());
+        buttonSlash = createButton(Buttons.SLASH.getLabel());
+        buttonOpeningBracket = createButton(Buttons.OPENING_BRACKET.getLabel());
+        buttonClosingBracket = createButton(Buttons.CLOSING_BRACKET.getLabel());
+        buttonModulo = createButton(Buttons.MODULO.getLabel());
+        buttonPercent = createButton(Buttons.PERCENT.getLabel());
+        buttonPowerOfTwo = createButton(Buttons.POWER_OF_TWO.getLabel());
+        buttonEqual = createButton(Buttons.EQUAL.getLabel(), 
+                                   BUTTON_DEFAULT_WIDTH, 
+                                   equalButtonHeight);
     }
 
     private Button createButton(String label) {
@@ -166,8 +214,8 @@ public class Viewer {
     private void addButtonsToGrid(GridPane grid) {
         grid.add(buttonClearEntry, 0, 0);
         grid.add(buttonClearAll, 1, 0);
-        grid.add(buttonLeftBracket, 2, 0);
-        grid.add(buttonRightBracket, 3, 0);
+        grid.add(buttonOpeningBracket, 2, 0);
+        grid.add(buttonClosingBracket, 3, 0);
         grid.add(buttonModulo, 4, 0);
 
         grid.add(buttonNum7, 0, 1);
