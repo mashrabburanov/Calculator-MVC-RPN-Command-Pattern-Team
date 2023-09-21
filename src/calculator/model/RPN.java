@@ -6,6 +6,10 @@ class RPN {
     public RPN() {}
     
     public double getResult() {
-        return this.result;
+        return result;
+    }
+
+    public void setResult(double result) {
+        this.result = result;
     }
 }
