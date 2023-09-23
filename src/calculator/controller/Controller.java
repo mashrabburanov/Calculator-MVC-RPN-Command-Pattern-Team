@@ -3,26 +3,26 @@ package calculator.controller;
 import calculator.viewer.Viewer;
 import calculator.model.Model;
 
-/**
- * Синглтон контроллера
- */
-public class Controller {
-    private static Controller INSTANCE = null;
 
+public class Controller {
     private Viewer viewer;
     private Model model;
 
-    private Controller() {
-        viewer = Viewer.getInstance();
-        model = Model.getInstance();
+    public Controller() {}
+
+    public void setModel(Model model) {
+        this.model = model;
     }
 
-    public static Controller getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new Controller();
-        }
-
-        return INSTANCE;
+    public Model getModel() {
+        return model;
     }
-    
+
+    public void setViewer(Viewer viewer) {
+        this.viewer = viewer;
+    }
+   
+    public Viewer getViewer() {
+        return viewer;
+    }
 }

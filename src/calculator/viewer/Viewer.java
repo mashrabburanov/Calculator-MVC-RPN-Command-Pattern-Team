@@ -13,12 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-/**
- * Синглтон вьювера
- */
-public class Viewer {
-    private static Viewer INSTANCE = null;
+import calculator.controller.Controller;
 
+public class Viewer {
     /**
      * Константы для размера кнопок, для промежутков между
      * vBox и GridPane и для промежутков в гриде (сетке)
@@ -74,22 +71,24 @@ public class Viewer {
     private Button      buttonPercent;
     private Button      buttonPowerOfTwo;
 
+    private Controller  controller;
+
     /**
      * В данном классе происходит много инициализаций, поэтому
      * я разделил процесс инициализация всех элементов и контейнеров
      * в разные методы вызываемые из конструктора и не доступные
      * пользователю класса
      */
-    private Viewer() {
+    public Viewer() {
         root = (VBox) initializeRootPane();
     }
 
-    public static Viewer getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new Viewer();
-        }
+    public void setController(Controller controller) {
+        this.controller = controller;
+    }
 
-        return INSTANCE;
+    public Controller getController() {
+        return controller;
     }
 
     /**
@@ -170,11 +169,19 @@ public class Viewer {
         return textField;
     }
 
+    public void updateTextField(String text) {
+        textField.setText(text);
+    }
+
     /**
      * Возвращает ссылку на лэйбл
      */
     public Label getLabel() {
         return label;
+    }
+
+    public void updateLabel(String text) {
+        label.setText(text);
     }
 
     /**

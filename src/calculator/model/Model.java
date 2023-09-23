@@ -2,27 +2,21 @@ package calculator.model;
 
 import calculator.viewer.Viewer;
 
-/**
- * Синглтон модели, содержит также ссылку на вьювер
- */
-public class Model {
-    private static Model INSTANCE = null;
 
+public class Model {
     private Viewer viewer;
     private RPN rpn = new RPN();
     private String infixExpression;
     private double rpnResult;
 
-    private Model() {
-        viewer = Viewer.getInstance();
+    public Model() {}
+
+    public void setViewer(Viewer viewer) {
+        this.viewer = viewer;
     }
 
-    public static Model getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new Model();
-        }
-
-        return INSTANCE;
+    public Viewer getViewer() {
+        return viewer;
     }
 
     public String getInfixExpression() {

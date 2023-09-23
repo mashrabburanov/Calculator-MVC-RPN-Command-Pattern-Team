@@ -58,9 +58,14 @@ public class Calculator extends Application {
     public Calculator() {
         super();
         
-        controller = Controller.getInstance();
-        model = Model.getInstance();
-        viewer = Viewer.getInstance();
+        viewer = new Viewer();
+        controller = new Controller();
+        model = new Model();
+
+        viewer.setController(controller);
+        model.setViewer(viewer);
+        controller.setModel(model);
+        controller.setViewer(viewer);
     }
 
     /**
