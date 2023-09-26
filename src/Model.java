@@ -1,22 +1,13 @@
-package calculator.model;
-
-import calculator.viewer.Viewer;
-
-
-public class Model {
+class Model {
     private Viewer viewer;
-    private RPN rpn = new RPN();
+    private RPN rpn;
     private String infixExpression;
     private double rpnResult;
 
-    public Model() {}
-
-    public void setViewer(Viewer viewer) {
+    public Model(Viewer viewer) {
         this.viewer = viewer;
-    }
-
-    public Viewer getViewer() {
-        return viewer;
+        rpn = new RPN();
+        infixExpression = "";
     }
 
     public String getInfixExpression() {

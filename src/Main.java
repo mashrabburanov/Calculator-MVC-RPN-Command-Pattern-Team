@@ -1,14 +1,24 @@
-import calculator.Calculator;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 
-/**
- * Класс Main является точкой входа в приложение.
- * Здесь происходит запуск статического метода run()
- * класса Calculator. Данный метода (run()) является 
- * оберткой для метода launch(String args[]) 
- * абстрактного класса Application.
- */
-public class Main {
+public class Main extends Application {
+    private Viewer viewer;
+
     public static void main(String args[]) {
-        Calculator.run(args);
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage stage) {
+        viewer = new Viewer();
+        Parent root = viewer.getRoot();
+        Scene scene = new Scene(root);
+
+        stage.setTitle("Calculator");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
 }
