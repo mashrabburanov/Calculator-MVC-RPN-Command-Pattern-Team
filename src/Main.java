@@ -4,7 +4,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 public class Main extends Application {
-    private Viewer viewer;
 
     public static void main(String args[]) {
         launch(args);
@@ -12,7 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-        viewer = new Viewer();
+        Viewer viewer = new Viewer();
         Parent root = viewer.getRoot();
         Scene scene = new Scene(root);
 
