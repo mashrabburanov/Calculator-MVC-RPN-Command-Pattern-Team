@@ -158,6 +158,7 @@ class Viewer {
 
         b.setPrefWidth(preferableWidth);
         b.setPrefHeight(preferableHeight);
+        b.setOnAction(controller);
 
         return b;
     }
